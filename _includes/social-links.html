@@ -1,0 +1,63 @@
+<div class="social-links">
+    {% if site.authors[author].twitter %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="twitter.com/{{ site.authors[author].twitter }}"
+        href="https://twitter.com/{{ site.authors[author].twitter }}" target="_blank">
+        <i class="fab fa-twitter"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].linkedin %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="linkedin.com/in/{{ site.authors[author].linkedin }}"
+        href="https://www.linkedin.com/in/{{ site.authors[author].linkedin }}" target="_blank">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].youtube %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="youtube.com/{{ site.authors[author].youtube }}"
+        href="https://youtube.com/{{ site.authors[author].youtube }}" target="_blank">
+        <i class="fab fa-youtube"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].github %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="github.com/{{ site.authors[author].github }}"
+        href="https://github.com/{{ site.authors[author].github }}" target="_blank">
+        <i class="fab fa-github"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].gitlab %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="gitlab.com/{{ site.authors[author].gitlab }}"
+        href="https://gitlab.com/{{ site.authors[author].gitlab }}" target="_blank">
+        <i class="fab fa-gitlab"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].stackoverflow %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="stackoverflow.com/users/{{ site.authors[author].stackoverflow }}"
+        href="https://stackoverflow.com/users/{{ site.authors[author].stackoverflow }}" target="_blank">
+        <i class="fab fa-stack-overflow"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].reddit %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="reddit.com/user/{{ site.authors[author].reddit }}"
+        href="https://www.reddit.com/user/{{ site.authors[author].reddit }}" target="_blank">
+        <i class="fab fa-reddit"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].medium %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="medium.com/@{{ site.authors[author].medium }}"
+        href="https://medium.com./@{{ site.authors[author].medium }}" target="_blank">
+        <i class="fab fa-medium"></i>
+    </a>
+    {% endif %}
+
+    {% if site.authors[author].email %}
+    <a class="link" {% if page.main and page.cover %} style="color: white;" {% endif %} data-title="{{ site.authors[author].email }}" href="mailto:{{ site.authors[author].email }}">
+        <i class="fas fa-envelope"></i>
+    </a>
+    {% endif %}
+</div>

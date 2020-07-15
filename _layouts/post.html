@@ -1,0 +1,103 @@
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+post_title: "title of the posts"
+---
+
+<header class="main-header post-head {% if page.cover %}"
+    style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
+    <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
+        <a class="back-button icon-arrow-left" href="{{'/' | relative_url }}">Home</a>
+        <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }}">Subscribe</a>
+    </nav>
+</header>
+
+{% assign author = page.author %}
+
+<header class="post-header">
+<h1 class="post-title" style="text-align: center; margin-bottom: 2.5rem;">{{ page.post_title }}</h1>
+    <section class="post-meta">
+        <span class="post-date-meta">
+            <!-- display post date and estimated read time -->
+            <time datetime="{{ page.date | date:"%d-%m-%Y" }}">
+                {{ page.date | date: "%A, %B %d, %Y" }}
+            </time>
+            - {% include read-time.html %}
+            <!-- list for tags names -->
+            {% if page.tags.size > 0 %}
+            <div class="tags" style="margin-top: 3rem;">
+                {% assign tags_list = page.tags %}
+                {% if tags_list.first[0] == null %}
+                {% for tag in tags_list %}
+                <a class="item" href="/tags.html#{{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+                {% else %}
+                {% for tag in tags_list %}
+                <a class="item" href="/tags.html#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+                {% endfor %}
+                {% endif %}
+                {% assign tags_list = nil %}
+            </div>
+            {% endif %}
+            <!-- end of tags names list -->
+        </span>
+    </section>
+</header>
+<hr>
+<main class="content" role="main">
+    <article class="post">
+        <section class="post-content">
+            {{content}}
+        </section>
+
+        {% if page.archive %}
+        <section class="archive">
+            <h5>Archive</h5>
+            <ul>
+                {% for post in site.posts %}
+                <li><span>{{ post.date | date_to_string }}</span> <a
+                        href="{{ post.url  | relative_url}}">{{ post.post_title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            {% assign author = page.author %}
+            {% if site.authors[author].picture %}
+            <figure class="author-image">
+                <a class="img" href="{{ '/about.html' | relative_url }}"
+                    style="background-image: url({{ site.authors[author].picture | relative_url }})">
+                    <span class="hidden">{{ site.authors[author].name }}'s Picture</span></a>
+            </figure>
+            {% endif %}
+
+            <section class="author">
+                <!-- Author Name -->
+                <h4>
+                    {{ site.authors[author].name }}
+                </h4>
+                <!-- Author Bio -->
+                <p>
+                    {{ site.authors[author].bio }}
+                </p>
+                <!-- Author Social Links -->
+                {% include social-links.html %}
+            </section>
+
+            <!-- Share links section -->
+            {% include share.html %}
+
+            <!-- Disqus comments -->
+            {% if page.disqus %}
+            {% include disqus.html %}
+            {% endif %}
+
+        </footer>
+
+    </article>
+
+</main>
