@@ -1502,6 +1502,12 @@ body:not(.post-template) .post-title {
     .post-date {
         font-size: 1.1rem;
     }
+
+    .lost-container .selfie{
+        width: 100%;
+        height: 100%;
+
+    }
 }
 
 
@@ -1776,6 +1782,12 @@ body:not(.post-template) .post-title {
 
     .post-date {
         font-size: 1.1rem;
+    }
+
+    .lost-container .selfie{
+        width: 100%;
+        height: 100%;
+
     }
 }
 
