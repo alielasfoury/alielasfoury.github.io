@@ -1,7 +1,6 @@
 ---
 layout: page
 ---
-# Markdown cheatsheet
 
 _(Also see [remarkable][], the markdown parser created by the author of this cheatsheet)_ 
 
