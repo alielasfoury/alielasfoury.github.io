@@ -14,7 +14,7 @@ tags:
 
 This is a writeup for Phphonebook web challenge from NahamCon CTF.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}01.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/1.png)
 
 <http://jh2i.com:50002>
 
@@ -22,13 +22,13 @@ This is a web challenge which we will exploit [Local File Inclusion](https://owa
 
 Once we open the url of the challenge we will find the below page.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}02.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/2.png)
 
 Which tells us that we are in  `/index.php/?file=` and The phonebook is located at `phphonebook.php`
 
 If we go to <https://jh2i.com:50002/phphonebook.php> we will find nothing interesting. It's just a text box and a submit button giving back no response.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}03.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/3.png)
 
 So lets go back and try to include phphonebook.php in the /index.php/ page using the 'file' parameter.
 
@@ -60,7 +60,7 @@ Or you can simply use a php filter to convert it to UTF format using the below u
 
 After sending the payload we will get the source code of `phphonebook.php` but it needs to be beautified. So let's copy the source code and go to <https://beautifier.io/> then select Beautify HTML, paste the code and click on Beautify code.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}04.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/4.png)
 
 Once it has been beautified, you can see the php line of code which extracts a POST request parameters and checks if a parameter called 'emergency' exists or not. If it exist, then it will echo the contents of the `flag.txt` file which we are looking for.
 
@@ -70,11 +70,11 @@ To manipulate and send custom requests we have two options, the web browser dev 
 
 Before using Burpsuite we should configure the browser to use it as a proxy. I'm using FoxyProxy firefox extension with Burpsuite settings configured. Open the browser then enable Burpsuite proxy settings. then open <http://jh2i.com:50002/phphonebook.php> in the browser.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}05.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/5.png)
 
 Now go back to Burpsuite, open Proxy tab then you will see that the request to the web server has been intercepted. What we found is the request is a GET not a POST request, but what we want to do is to send a POST request with the 'emergency' parameter included.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}06.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/6.png)
 
 So right click anywhere on the request, then choose Send to repeater or simply just click `ctrl+r`. Go to Repeater tab. On the request Raw tab text box, change the GET method to POST, then add the 'emergency' POST parameter to the body of the request. 
 
@@ -82,6 +82,6 @@ Now an additional tab called 'Params' will be automatically shown which includes
 
 After sending the request, a response is received with the flag as shown.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/{{ page.title}}07.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/7.png)
 
 `flag{phon3_numb3r_3xtr4ct3d}`
