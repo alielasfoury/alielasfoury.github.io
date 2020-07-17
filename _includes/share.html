@@ -1,13 +1,16 @@
 <section class="share">
     <h4>Share this post</h4>
-    <a href="http://twitter.com/share?text={{page.title}}&amp;url={{site.domain_name}}{{ page.url }}" target="_blank">
+    <a href="http://twitter.com/share?text={{page.post_title}} %7C by %40{{ site.authors[author].twitter}}%0D%0D&amp;url={{site.domain_name}}{{ page.url }}%0D%0D{% for tag in page.tags %}%23{{tag}}%20{% endfor %}" target="_blank">
         <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{site.domain_name}}{{page.url}}" target="_blank">
+    
+    <a href="https://www.facebook.com/sharer/sharer.php?display=page&u={{site.domain_name}}{{page.url}}" target="_blank">
         <i class="fab fa-facebook-square"></i>
     </a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ site.domain_name }}{{ page.url }}&amp;title={{ page.title }}&amp;summary=" target="_blank">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ site.domain_name }}{{ page.url }}&amp;title={{ page.post_title }}" target="_blank">
         <i class="fab fa-linkedin"></i>
     </a>
+
+    
 </section>

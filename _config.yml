@@ -20,10 +20,11 @@ defaults:
       path: ""
       type: "posts"
     values:
+      author: alielasfoury
       layout: "post"
       tags: ""
-      categories: ""
-      author: alielasfoury
+      categories:
+        - blog
       post_class: post-template
       permalink: /:categories/:title.html
       post_title: ""

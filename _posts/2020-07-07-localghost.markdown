@@ -15,46 +15,36 @@ tags:
 
 This is a write-up for Localghost web challenge from NahamCon CTF.
 
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost01.png">
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/1.png)
 
-This is a web challenge so we should go check the mentioned URL in the browser.
+This is a web challenge, so the first thing we should so is go check the mentioned URL in the browser.
 
 <http://jh2i.com:50003>
 
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost02.png">
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/2.png)
 
-The first thing we are going to do is to view the page source.
+The first thing we are going to do is to view the page source. In the page source there are two javascript files referenced. The first one is related to `code.jquery.com` so its not related to the challenge. But the second one is a relative path so its interesting, let's click on the file path to see it's content.
 
-In the page source there are two javascript files referenced.
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/3.png)
 
-The first one is related to code.jquery.com so its not related to the challenge.
+Or we can just open inspect elements from the browser then open the debugger tool and see the javascript files loaded. The content of the file is an encoded javascript code. We can simply click on Pretty print source to see the code in a better way.
 
-The second one is a relative path so its interesting, let's click on the file path to see it's content.
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/4.png)
 
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost03.png">
+Now we should see the code in a better way but some of it still encoded and obfuscated. So we have another option to decode and deobfuscate the code using online tool <https://beautifier.io/>. Copy the encoded JS code the paste it inside the text box in <https://beautifier.io/> then click on Beautify code.
 
-Or we can just open inspect elements from the browser then open the debugger and see the javascript files loaded.
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/5.png)
 
-The content of the file is an encoded javascript code.
+After the code has been beautified, the first thing you can notice is that it sets a localStorage item which called flag and it's content is the output of the `atob('somestringhere')` fuction.
 
-We can simply click on Pretty print source to see the code in a better way
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/6.png)
 
-<img  src="/assets/images/writeups/nahamcon-ctf/localghost/localghost04.png">
+Lets go to the browser and open the Storage Inspector then choose the Local Storage and finally you will find the flag item and it's content.
 
-Now we should see the code in a better way but some of it still encoded and obfuscated. So we have another option to decode and deobfuscate the code using online tool <https://beautifier.io/>
+Or we can simply open the browser console and write the below line of JavaScript code:
 
-Copy the encoded JS code the paste it inside the text box in beautifier.io then click on Beautify code
+`window.localStorage.getItem('flag')`
 
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost05.png">
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/7.png)
 
-After the code has been beautified, the first thing you can notice is that it sets a localStorage item which called flag and it's content is the output of the atob('somestringhere') fuction
-
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost06.png">
-
-Lets go to the browser and open the Storage Inspector then choose the Local Storage and finally you will find the flag item and it's content
-
-Or we can simply open the browser console and write the below line of code:
-
-window.localStorage.getItem('flag')
-
-<img src="/assets/images/writeups/nahamcon-ctf/localghost/localghost07.png">
+`JCTF{spoooooky_ghosts_in_storage}`
