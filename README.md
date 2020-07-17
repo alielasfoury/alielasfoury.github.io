@@ -1,8 +1,8 @@
-# Description
+## Description
 
 This a repo for my blog.
 
-# Theme
+## Theme
 
 I used Jekyll theme called Kasper and have done some modifications on the original them. 
 

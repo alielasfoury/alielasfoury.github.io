@@ -17,14 +17,14 @@ post_title: "title of the posts"
 {% assign author = page.author %}
 
 <header class="post-header">
-<h1 class="post-title" style="text-align: center; margin-bottom: 2.5rem;">{{ page.post_title }}</h1>
+<h1 class="post-title">{{ page.post_title }}</h1>
     <section class="post-meta">
         <span class="post-date-meta">
-            <!-- display post date and estimated read time -->
+             <!-- display post date and estimated read time -->
             <time datetime="{{ page.date | date:"%d-%m-%Y" }}">
                 {{ page.date | date: "%A, %B %d, %Y" }}
             </time>
-            - {% include read-time.html %}
+            &#8226; {% include read-time.html %}
             <!-- list for tags names -->
             {% if page.tags.size > 0 %}
             <div class="tags" style="margin-top: 3rem;">

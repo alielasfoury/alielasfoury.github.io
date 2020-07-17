@@ -46,7 +46,7 @@ author: alielasfoury
         <a class="back-button" href="{{ '/' | relative_url }} ">Home</a>
         <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }} ">Subscribe</a>
     </nav>
-    <nav class="pagination" role="pagination" style="margin: 40px auto 0 auto">
+    <nav class="pagination" role="pagination">
         <span class="page-number">
             Page {{paginator.page}} of {{paginator.total_pages}}
         </span>
@@ -63,21 +63,22 @@ author: alielasfoury
     </div>
 
     {% for post in paginator.posts %}
-    <article class="post">
+    <article style="border-radius: 10px; background: white; padding: 20px; box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2);" class="post">
 
         <header class="post-header">
             <h2 class="post-title">
-                <a style="font-size: 2.8rem;" href="{{ post.url | relative_url }}">
+                <a href="{{ post.url | relative_url }}">
                     {{ post.post_title }}
                 </a>
             </h2>
+            <a class="read-more" href="{{ post.url | relative_url }}">
+                <section class="post-excerpt">
+                    {{ post.excerpt }} &raquo;
+                </section>
+            </a>
         </header>
-        
-        <a class="read-more" href="{{ post.url | relative_url }}">
-            <section class="post-excerpt">
-                {{ post.excerpt }} &raquo;
-            </section>
-        </a>
+
+
         <footer class="post-meta">
             <!-- list for tags names -->
             {% if post.tags.size > 0 %}
@@ -107,8 +108,9 @@ author: alielasfoury
                 <img class="author-thumb" src="{{ '/assets/images/author.png' | relative_url}}" alt="" nopin="nopin" />
                 {% endif %}
 
-                {{ site.authors[author].name }} |
+                {{ site.authors[author].name }} 
             </a>
+            |
             <!-- display post date and estimated read time -->
                 <time datetime="{{ page.date | date:"%d-%m-%Y" }}">
                     {{ post.date | date: "%A, %B %d, %Y" }}
