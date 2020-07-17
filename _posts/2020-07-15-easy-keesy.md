@@ -1,6 +1,6 @@
 ---
 title: easy-keesy
-post_title: Easy Keesy writeup - NahamCon CTF
+post_title: Easy Keesy Writeup - NahamCon CTF
 categories:
 - blog
 - writeups
