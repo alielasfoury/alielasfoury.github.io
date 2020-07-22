@@ -41,6 +41,6 @@ As well, I've started to participate in Capture the Flag (CTF) competitions on 1
 ***
 
 #### HackTheBox Badge
-<a href="" onclick="window.open('https://www.hackthebox.eu/home/users/profile/160439'); return false;">
+<a href="" onclick="window.open('https://www.hackthebox.eu/profile/160439'); return false;">
 <img src="http://www.hackthebox.eu/badge/image/160439" alt="Hack The Box">
 </a>
