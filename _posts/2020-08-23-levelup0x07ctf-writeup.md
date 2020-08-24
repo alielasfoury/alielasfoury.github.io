@@ -54,7 +54,7 @@ After downloading the Android app **`communications.apk`**, The first thing that
 
 ![]({{ 'assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/5.png' | relative_url }})
 
-After decoding the apk file, we get a directory contains the app components. So by searching for **`FLAG{`** text in the files recursively using **`grep`**, we can easily get the second flag in **`res/values/strings.xml`** file.
+After decoding the apk file, we get a directory that contains the app components. So by searching for **`FLAG{`** text in the files recursively using **`grep`**, we can easily get the second flag in **`res/values/strings.xml`** file.
 
 **`$ grep -R "FLAG{"`**
 
