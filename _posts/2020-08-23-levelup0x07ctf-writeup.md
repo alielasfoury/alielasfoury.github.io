@@ -11,6 +11,7 @@ tags:
 - web
 - mobile
 - android
+post_thumbnail: "/assets/images/writeups/bugcrowd/levelup0x07ctf-writeup/logo.png"
 ---
 
 The LevelUp0x07 CTF is a web and Android-based capture the flag challenge in which players are encouraged to test their security skills by attempting to actively exploit the web and mobile applications and collect all the flags.

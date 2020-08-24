@@ -28,6 +28,7 @@ defaults:
       post_class: post-template
       permalink: /:categories/:title.html
       post_title: ""
+      post_thumbnail: ""
 
 # Details for the RSS feed generator
 url: "https://alielasfoury.github.io"
