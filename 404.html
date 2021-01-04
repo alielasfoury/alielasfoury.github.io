@@ -9,8 +9,46 @@ permalink: /404.html
   <br />
   <br />
   <div class="link">
-    <img class="selfie" alt="{{ site.name }}" src="{{ site.url }}/assets/images/error.gif" />
+    <img
+      class="selfie"
+      alt="image"
+      src="{{ '/assets/images/error.gif' | relative_path }}"
+    />
   </div>
   <br />
   <br />
 </section>
+<script>
+  // redirecting to the new location
+  if (document.URL.includes("levelup")) {
+    newlocation =
+      "https://alielasfoury.github.io/writeups/bugcrowd-levelup0x07-ctf.html";
+
+    document.getElementsByTagName("a")[0].innerHTML =
+      "This page has been moved <br>\
+    Redirecting to the new location<br>\
+    <a href= " +
+      newlocation +
+      ">" +
+      newlocation +
+      "</a>";
+
+    setTimeout(redirect(newlocation), 3000);
+  } else if (document.URL.includes("naham")) {
+    newlocation = "https://alielasfoury.github.io/tags.html#nahamcon";
+
+    document.getElementsByTagName("a")[0].innerHTML =
+      "This page has been moved <br>\
+    Redirecting to the new location<br>\
+    <a href= " +
+      newlocation +
+      ">" +
+      newlocation +
+      "</a>";
+
+    setTimeout(redirect(newlocation), 3000);
+  }
+  function redirect(newlocation) {
+    window.location.href = newlocation;
+  }
+</script>

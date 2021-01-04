@@ -9,6 +9,7 @@ tags:
 - web
 - mobile
 - android
+- bugcrowd
 post_thumbnail: "/assets/images/writeups/bugcrowd-levelup0x07-ctf/logo.png"
 ---
 
