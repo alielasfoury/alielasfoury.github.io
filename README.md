@@ -4,7 +4,7 @@ This a repo for my blog.
 
 ## Theme
 
-I used Jekyll theme called Kasper and have done some modifications on the original them. 
+I used Jekyll theme called Kasper and have done some modifications on the original theme. 
 
 This is the original theme: <https://github.com/rosario/kasper>
 
