@@ -1,22 +1,20 @@
 ---
-title: easy-keesy
+title: nahamcon-ctf-easy-keesy
 post_title: Easy Keesy Writeup - NahamCon CTF
 categories:
-- blog
-- writeups
-- NahamConCTF
+  - writeups
 tags:
-- ctf
-- writeup
-- nahamcon
-- bash
-- password_cracking
-- hashcat
+  - ctf
+  - writeup
+  - nahamcon
+  - bash
+  - password_cracking
+  - hashcat
 ---
 
 This is a write-up for Easy Keesy challenge from NahamCon CTF.
 
-![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/1.png)
+![image](/assets/images/writeups/nahamcon-ctf/{{ page.title | remove: "nahamcon-ctf-" }}/1.png)
 
 In this challenge we have a file. After we download the file, the first thing we should do is checking its type with file command.
 
@@ -47,7 +45,7 @@ Now we are ready to let hashcat crack the password.
 
 ![image](/assets/images/writeups/nahamcon-ctf/{{ page.title}}/7.png)
 
-You can check `hashcat` man page from the terminal to know more about it and how to use it. 
+You can check `hashcat` man page from the terminal to know more about it and how to use it.
 
 The password has been cracked and it is 'monkeys'.
 

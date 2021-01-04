@@ -4,40 +4,34 @@ post_class: post-template page-template
 ---
 
 <header class="main-header post-head no-cover">
-    <nav class="main-nav clearfix">
-        <a class="back-button icon-arrow-left" href="{{'/' | relative_url }}">Home</a>
-        <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }}">Subscribe</a>
-    </nav>
-
+  <nav class="main-nav clearfix">
+    <a class="back-button icon-arrow-left" href="{{'/' | relative_url }}"
+      >Home</a
+    >
+    <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }}"
+      >Subscribe</a
+    >
+  </nav>
 </header>
 
 <div class="header-home animation">
+  {% assign author = "alielasfoury" %} {% if site.authors[author].picture %}
+  <span class="link">
+    <img
+      class="selfie"
+      alt="{{ site.name }}"
+      src="{{ site.authors[author].picture }}"
+    />
+  </span>
+  {% endif %}
 
-    {% assign author = "alielasfoury" %}
-    {% if site.authors[author].picture %}
-    <span class="link">
-        <img class="selfie" alt="{{ site.name }}" src="{{ site.authors[author].picture }}" />
-    </span>
-    {% endif %}
-
-    <h1 class="title" style="font-size: 35px;">
-        {{ site.name }}
-    </h1>
-    <h2 class="description">
-        {{ site.bio }}
-    </h2>
-    <div class="">
-    {% include social-links.html %}
-    </div>
+  <h1 class="title" style="font-size: 35px">{{ site.name }}</h1>
+  <h2 class="description">{{ site.bio }}</h2>
+  <div class="">{% include social-links.html %}</div>
 </div>
 
 <main class="content" role="main">
-    <article class="post">
-
-        <section class="post-content">
-            {{content}}
-        </section>
-
-    </article>
-
+  <article class="post">
+    <section class="post-content">{{content}}</section>
+  </article>
 </main>

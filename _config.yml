@@ -5,15 +5,15 @@ meta_description: "Blogging about cybersecurity stuff"
 
 markdown: kramdown
 highlighter: rouge
-logo: true  
+logo: true
 baseurl: /
 domain_name: "https://alielasfoury.github.io"
 google_analytics: "UA-172064109-1"
 plugins:
-- jekyll-paginate
-- jekyll-admin
+  - jekyll-paginate
+  - jekyll-admin
 
-paginate: 6   
+paginate: 6
 
 defaults:
   - scope:
@@ -23,8 +23,6 @@ defaults:
       author: alielasfoury
       layout: "post"
       tags: ""
-      categories:
-        - blog
       post_class: post-template
       permalink: /:categories/:title.html
       post_title: ""
@@ -49,7 +47,6 @@ authors:
     #reddit: alielasfoury
     #stackoverflow: 4670795/alielasfoury
     email: alielasfoury@gmail.com
-    
+
 # Disqus config
 disqus-shortname: ""
-    
