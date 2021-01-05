@@ -62,5 +62,5 @@ This blog is made mainly for publishing my beginner-friendly CTF challenge's wri
 #### HackTheBox Badge
 
 <a href="" onclick="window.open('https://www.hackthebox.eu/profile/160439'); return false;">
-<img src="http://www.hackthebox.eu/badge/image/160439" alt="Hack The Box">
+<img src="https://www.hackthebox.eu/badge/image/160439" alt="Hack The Box">
 </a>
