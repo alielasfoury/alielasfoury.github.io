@@ -43,7 +43,7 @@ This blog is made mainly for publishing my beginner-friendly CTF challenge's wri
 #### My Public Profile
 
 - [<b>PentesterLab.com</b>/profile/alielasfoury](https://pentesterlab.com/profile/alielasfoury "Visit my profile on PentesterLab!")
-- [<b>HackTheBox.eu</b>/profile/160439](https://www.hackthebox.eu/profile/160439 "Visit my profile on HackTheBox")
+- [<b>HackTheBox.eu</b>/profile/160439](https://app.hackthebox.eu/profile/160439 "Visit my profile on HackTheBox")
 - [<b>TryHackMe.com</b>/p/alielasfoury](https://tryhackme.com/p/alielasfoury "Visit my profile on TryHackMe")
 - [<b>Root-me.org</b>/ki11bash9](https://www.root-me.org/ki11bash9?lang=en "Visit my profile on Root-Me!")
 - [<b>Cybertalents.com</b>/members/alielasfoury/profile](https://cybertalents.com/members/alielasfoury/profile "Visit my profile on CyberTalents!")
@@ -61,6 +61,6 @@ This blog is made mainly for publishing my beginner-friendly CTF challenge's wri
 
 #### HackTheBox Badge
 
-<a href="" onclick="window.open('https://www.hackthebox.eu/profile/160439'); return false;">
+<a href="" onclick="window.open('https://app.hackthebox.eu/profile/160439'); return false;">
 <img src="https://www.hackthebox.eu/badge/image/160439" alt="Hack The Box">
 </a>
