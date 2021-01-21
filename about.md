@@ -18,6 +18,7 @@ This blog is made mainly for publishing my beginner-friendly CTF challenges' wri
 #### Achievements
 
 - Advent of CTF Top 10 (8th Place out of 400+)<br>
+  <https://twitter.com/adventofctf/status/1342380036402393090>
   <https://ctfd.adventofctf.com/scoreboard>
 - NahamCon CTF (601st Place out of 5000+)<br>
   <https://ctftime.org/team/122569>
