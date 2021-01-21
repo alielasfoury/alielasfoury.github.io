@@ -13,7 +13,7 @@ On 1st of Dec 2019 - One month after my resignation - I started a three months s
 
 Currently, I’m working on improving my hacking skills through participation in online CTF competitions and practice on online hacking labs so that I can get an entry-level job in the Cybersecurity field.
 
-This blog is made mainly for publishing my beginner-friendly CTF challenge's write-ups. I may share my technical notes, write-up some tutorials about any tools I would learn, share any resources I could find, or share my preparation progress for any cybersecurity-related certification/exam. So, try to keep an eye on this blog as you may find it helpful, especially if you are a beginner in the Cybersecurity field.
+This blog is made mainly for publishing my beginner-friendly CTF challenges' write-ups. I may share my technical notes, write up some tutorials about any tools I would learn, share any resources I could find, or share my preparation progress for any cybersecurity-related certification/exam. So, try to keep an eye on this blog as you may find it helpful, especially if you are a beginner in the Cybersecurity field.
 
 #### Achievements
 
