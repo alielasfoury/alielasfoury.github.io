@@ -1,0 +1,126 @@
+---
+layout: default
+title: Home
+cover: false
+main: 1
+cover: '/assets/images/cover.jpg'
+author: alielasfoury
+---
+
+<!-- display the main header only if it's the first page -->
+{% if paginator.page == 1%}
+
+<header class="main-header {% if page.cover %}"
+    style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
+
+    <nav class="main-nav overlay clearfix">
+        <a class="back-button" href="{{ '/about.html' | relative_url }} ">About me</a>
+        <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }} ">Subscribe</a>
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner animation">
+            <h1 class="page-title">{{ site.name }}</h1>
+            <h2 class="page-description">
+                {% if site.description %} {{ site.description }}. {% endif %}
+                {% if page.cover %}
+                <hr>
+                {% endif %}
+            </h2>
+            <div class="div-social">
+                {% assign author = "alielasfoury" %}
+                {% include social-links.html %}
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+
+</header>
+
+<!-- if not the first page, dispaly the page number at the top -->
+{% else %}
+
+<header class="no-cover">
+    <nav class="main-nav overlay clearfix">
+        <a class="back-button" href="{{ '/' | relative_url }} ">Home</a>
+        <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }} ">Subscribe</a>
+    </nav>
+    <nav class="pagination" role="pagination">
+        <span class="page-number">
+            Page {{paginator.page}} of {{paginator.total_pages}}
+        </span>
+    </nav>
+</header>
+
+{% endif %}
+<!-- end -->
+
+<main id="content" class="content" role="main">
+
+    <div class="extra-pagination inner">
+        {% include pagination.html %}
+    </div>
+
+    {% for post in paginator.posts %}
+    <article class="post home-post">
+
+        <header class="post-header">
+            <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}">
+                    {{ post.post_title }}
+                </a>
+            </h2>
+            <a class="read-more" href="{{ post.url | relative_url }}">
+                <section class="post-excerpt">
+                    {{ post.excerpt }} &raquo;
+                </section>
+            </a>
+        </header>
+
+
+        <footer class="post-meta">
+            <!-- list for tags names -->
+            {% if post.tags.size > 0 %}
+            <div class="tags">
+                {% assign tags_list = post.tags %}
+                {% if tags_list.first[0] == null %}
+                {% for tag in tags_list %}
+                <a class="item" href="/tags.html#{{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+                {% else %}
+                {% for tag in tags_list %}
+                <a class="item" href="/tags.html#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+                {% endfor %}
+                {% endif %}
+                {% assign tags_list = nil %}
+            </div>
+            {% endif %}
+            <!-- end of tags names list -->
+
+            <br>
+            {% assign author = post.author %}
+            {% if site.authors[author].picture %}
+            <a
+                href="{% if site.authors[author].name == 'Ali El-Asfoury' %}{{ '/about.html' | relative_url }}{% endif %}">
+                <img class="author-thumb" src="{{ site.authors[author].picture | relative_url}}" alt="" nopin="nopin" />
+                {% else %}
+                <img class="author-thumb" src="{{ '/assets/images/author.png' | relative_url}}" alt="" nopin="nopin" />
+                {% endif %}
+
+                {{ site.authors[author].name }} 
+            </a>
+            |
+            <!-- display post date and estimated read time -->
+                <time datetime="{{ page.date | date:"%d-%m-%Y" }}">
+                    {{ post.date | date: "%A, %B %d, %Y" }}
+                </time>
+        </footer>
+
+    </article>
+
+    {% endfor %}
+
+    {% include pagination.html %}
+
+</main>

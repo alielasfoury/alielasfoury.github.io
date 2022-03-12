@@ -1,0 +1,52 @@
+name: Ali ElAsfoury
+bio: Computer Engineer and Cybersecurity Enthusiast
+description: Blogging about cybersecurity stuff
+meta_description: "Blogging about cybersecurity stuff"
+
+markdown: kramdown
+highlighter: rouge
+logo: true
+baseurl: /
+domain_name: "https://alielasfoury.github.io"
+google_analytics: "UA-172064109-1"
+plugins:
+  - jekyll-paginate
+  - jekyll-admin
+
+paginate: 6
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      author: alielasfoury
+      layout: "post"
+      tags: ""
+      post_class: post-template
+      permalink: /:categories/:title.html
+      post_title: ""
+      post_thumbnail: ""
+
+# Details for the RSS feed generator
+url: "https://alielasfoury.github.io"
+
+authors:
+  alielasfoury:
+    name: Ali El-Asfoury
+    bio: Computer Engineer and Cybersecurity Enthusiast
+    external-image: false
+    picture: assets/images/alielasfoury.jpg
+    # if you don't have any of social below, comment the line
+    twitter: alielasfoury
+    linkedin: alielasfoury
+    medium: alielasfoury
+    github: alielasfoury
+    #gitlab: alielasfoury
+    #youtube: alielasfoury
+    #reddit: alielasfoury
+    #stackoverflow: 4670795/alielasfoury
+    email: alielasfoury@gmail.com
+
+# Disqus config
+disqus-shortname: ""

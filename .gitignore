@@ -1,0 +1,7 @@
+_site
+_drafts
+.DS_Store
+*.swp
+.sass-cache
+.jekyll-cache
+.vscode
