@@ -8,7 +8,6 @@ highlighter: rouge
 logo: true
 baseurl: /
 domain_name: "https://alielasfoury.github.io"
-google_analytics: "UA-172064109-1"
 plugins:
   - jekyll-paginate
   - jekyll-admin
