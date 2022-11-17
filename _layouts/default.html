@@ -2,6 +2,16 @@
 <html>
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8N3JQCWJYZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8N3JQCWJYZ');
+  </script>
+
   <title>{{ site.name }} - {{ site.description }}</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -24,16 +34,6 @@
   <link rel="stylesheet" type="text/css" href="{{'/assets/css/main.css' | relative_url}} " />
   <script src="https://kit.fontawesome.com/ebcd73f3fe.js" crossorigin="anonymous"></script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8N3JQCWJYZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-8N3JQCWJYZ');
-</script>
 
 <body class="{% if page.post_class %}{{page.post_class}}{% else %}home-template{% endif %}">
   {{ content }}
