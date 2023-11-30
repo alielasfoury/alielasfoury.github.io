@@ -1,8 +1,8 @@
 {
-    "url": "https://alielasfoury.github.io/xss-poc.yaml",
+    "url": "https://alielasfoury.github.io/assets/xss-poc.yaml",
     "urls": [
         {
-            "url": "https://alielasfoury.github.io/xss-poc.yaml",
+            "url": "https://alielasfoury.github.io/assets/xss-poc.yaml",
             "name": "Inovasys"
         }
     ]
